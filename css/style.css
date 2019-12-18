@@ -1,0 +1,39 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #51a6ff;
+}
+
+/* Header */
+header {
+  display: block;
+  width: 100%;
+}
+
+.header-up {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.header-up h1 {
+  align-self: flex-start;
+  max-width: 100px;
+}
+
+.header-up h1 img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+canvas {
+  max-height: 650px;
+}
