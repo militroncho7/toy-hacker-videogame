@@ -65,8 +65,10 @@ const Game = {
   },
 
   generateObstacles: function() {
-    let images = ['img/alien.png', 'img/ball.png', 'img/pork.png', 'img/potato.png', 'img/rex.png', 'img/soldier.png', 'img/woody.png']
-    this.obstacles.push(new Obstacle(this.ctx, 15, 45, this.width, this.height, images[0]))
+    let images = ['img/alien.png', 'img/ball.png', 'img/pork.png', 'img/potato.png', 'img/rex.png', 'img/soldier.png', 'img/woody.png'];
+    let rand = Math.floor(Math.random() * images.length); 
+    console.log("Numero aleatorio " + rand)
+    this.obstacles.push(new Obstacle(this.ctx, 15, 45, this.width, this.height, images[rand]));
   },
 
   gameOver: function() {
