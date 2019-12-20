@@ -13,8 +13,7 @@ class Obstacle {
     this.vx = 10;
   }
 
-  draw() {
-    
+  draw() {    
     this.ctx.drawImage(this.image, this.posX, this.posY, this.width, this.height);
   }
 
