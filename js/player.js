@@ -11,11 +11,8 @@ class Player {
     this.posY = 0;
     this.posY0 = 560;
 
-    //this.posY = gameHeight * 0.98 - this.height ;
-    //this.posY0 = gameHeight * 0.98 - this.height ;
-
     this.vy = 1;
-    //this.gravity = 0.4;
+
     this.gameWidth = gameWidth;
 
     this.frames = 3;
@@ -38,8 +35,8 @@ class Player {
       this.width,
       this.height
     )
-     this.clearBullets()
-     this.bullets.forEach(bullet => bullet.draw())
+    this.clearBullets()
+    this.bullets.forEach(bullet => bullet.draw())
     this.animate(framesCounter)
   }
 
@@ -73,6 +70,7 @@ class Player {
   setListeners() {
     document.addEventListener('keydown', (e) => {
       switch (e.keyCode) {
+
         case this.keys.TOP_KEY:
           if (this.posY >= 0) {
             this.posY -= this.vy;
@@ -85,9 +83,10 @@ class Player {
             this.posY -= this.vy;
             this.vy += 10;
           }
-           break;
-         case this.keys.SPACE:
-           this.shoot()
+          break;
+
+        case this.keys.SPACE:
+          this.shoot()
       }
     })
   }

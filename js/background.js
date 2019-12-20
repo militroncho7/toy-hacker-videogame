@@ -21,6 +21,6 @@ class Background {
   move() {
     this.posX -= this.vx;
 
-    if(this.posX <= -this.width) this.posX = 0;
+    if (this.posX <= -this.width) this.posX = 0;
   }
 }
