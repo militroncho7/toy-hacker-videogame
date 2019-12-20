@@ -1,8 +1,8 @@
 class Obstacle {
   constructor(ctx, width, height, gameWidth, gameHeight, image) {
     this.ctx = ctx;
-    this.width = 170;
-    this.height = 150;
+    this.width = width;
+    this.height = height;
 
     this.image = new Image();
     this.image.src = image;

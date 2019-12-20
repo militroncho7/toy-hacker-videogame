@@ -37,3 +37,7 @@ header {
 canvas {
   max-height: 650px;
 }
+
+#audio{
+display: none
+}
