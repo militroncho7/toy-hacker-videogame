@@ -20,7 +20,7 @@ class Player {
 
     this.keys = keys;
     this.bullets = [];
-    this.setListeners()
+    this.setListeners();
   }
 
   draw(framesCounter) {
@@ -35,15 +35,14 @@ class Player {
       this.width,
       this.height
     )
-    this.clearBullets()
-    this.bullets.forEach(bullet => bullet.draw())
-    this.animate(framesCounter)
+    this.clearBullets();
+    this.bullets.forEach(bullet => bullet.draw());
+    this.animate(framesCounter);
   }
 
   move() {
     if (this.posY <= this.posY0 && this.posY >= 0) {
       this.posY += this.vy;
-      // this.vy += this.gravity;
     } else {
       this.vy = 1;
       if (this.posY >= 300) {
@@ -51,16 +50,13 @@ class Player {
       } else {
         this.posY = 0;
       }
-
-
     }
-    this.bullets.forEach(bullet => bullet.move())
+    this.bullets.forEach(bullet => bullet.move());
   }
 
   animate(framesCounter) {
     if (framesCounter % 10 === 0) {
       this.framesIndex++;
-
       if (this.framesIndex > 2) this.framesIndex = 0;
     }
   }

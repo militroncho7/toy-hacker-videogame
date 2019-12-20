@@ -24,7 +24,7 @@ const Game = {
   },
 
   start: function () {
-    this.reset()
+    this.reset();
     this.interval = setInterval(() => {
       this.framesCounter++;
 
@@ -36,9 +36,9 @@ const Game = {
       audio.play();
 
       this.clearObstacles()
-      if (this.framesCounter % 70 === 0) this.generateObstacles()
+      if (this.framesCounter % 70 === 0) this.generateObstacles();
       if (this.framesCounter % 100 === 0) this.score++;
-      if (this.isCollision()) this.gameOver()
+      if (this.isCollision()) this.gameOver();
       if (this.isBulletCollision())
         if (this.framesCounter > 1000) this.framesCounter = 0;
     }, 1000 / this.fps)
@@ -50,24 +50,24 @@ const Game = {
 
     this.player = new Player(this.ctx, 130, 200, 'img/player.png', this.width, this.height, this.playerKeys);
     this.obstacles = [];
-    ScoreBoard.init(this.ctx, this.score)
+    ScoreBoard.init(this.ctx, this.score);
   },
 
   clear: function () {
-    this.ctx.clearRect(0, 0, this.width, this.height)
+    this.ctx.clearRect(0, 0, this.width, this.height);
   },
 
   drawAll: function () {
     this.background.draw();
     this.player.draw(this.framesCounter);
-    this.obstacles.forEach(obstacle => obstacle.draw())
-    ScoreBoard.draw(this.score)
+    this.obstacles.forEach(obstacle => obstacle.draw());
+    ScoreBoard.draw(this.score);
   },
 
   moveAll: function () {
-    this.background.move()
-    this.player.move()
-    this.obstacles.forEach(obstacle => obstacle.move())
+    this.background.move();
+    this.player.move();
+    this.obstacles.forEach(obstacle => obstacle.move());
   },
 
   generateObstacles: function () {
@@ -78,7 +78,7 @@ const Game = {
     switch (images[rand]) {
 
       case 'img/alien.png':
-        this.obstacles.push(new Obstacle(this.ctx, 200, 200, this.width, this.height, images[rand]));
+        this.obstacles.push(new Obstacle(this.ctx, 200, 200, this.width, 350, images[rand]));
         break;
 
       case 'img/ball.png':
@@ -122,7 +122,7 @@ const Game = {
         break;
 
       case 'img/soldier2.png':
-        this.obstacles.push(new Obstacle(this.ctx, 100, 150, this.width, 365, images[rand]));
+        this.obstacles.push(new Obstacle(this.ctx, 100, 150, this.width, 200, images[rand]));
         break;
 
       case 'img/soldier3.png':
@@ -142,7 +142,7 @@ const Game = {
   isCollision: function () {
     // colisiones genéricas
     // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
-    return this.obstacles.some(obs => (this.player.posX + this.player.width > obs.posX && obs.posX + obs.width > this.player.posX && this.player.posY + this.player.height > obs.posY && obs.posY + obs.height > this.player.posY))
+    return this.obstacles.some(obs => (this.player.posX + this.player.width > obs.posX && obs.posX + obs.width > this.player.posX && this.player.posY + this.player.height > obs.posY && obs.posY + obs.height > this.player.posY));
   },
 
 
@@ -151,7 +151,7 @@ const Game = {
     // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
     for (let i = 0; i < this.player.bullets.length; i++) {
 
-      let condition = this.obstacles.some(obs => (this.player.bullets[i].posX > obs.posX && obs.posX + obs.width > this.player.bullets[i].posX && this.player.bullets[i].posY > obs.posY && obs.posY + obs.height > this.player.bullets[i].posY))
+      let condition = this.obstacles.some(obs => (this.player.bullets[i].posX > obs.posX && obs.posX + obs.width > this.player.bullets[i].posX && this.player.bullets[i].posY > obs.posY && obs.posY + obs.height > this.player.bullets[i].posY));
 
       if (condition) {
         this.obstacles.splice(i, 1);
@@ -162,6 +162,6 @@ const Game = {
   },
 
   clearObstacles: function () {
-    this.obstacles = this.obstacles.filter(obstacle => (obstacle.posX >= 0))
+    this.obstacles = this.obstacles.filter(obstacle => (obstacle.posX >= 0));
   }
 }

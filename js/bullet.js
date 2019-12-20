@@ -16,9 +16,9 @@ class Bullet {
 
   draw() {
     this.ctx.beginPath();
-    this.ctx.fillStyle = 'red'
-    this.ctx.fillRect(this.posX, this.posY, this.width, this.height)
-    this.ctx.fill()
+    this.ctx.fillStyle = 'red';
+    this.ctx.fillRect(this.posX, this.posY, this.width, this.height);
+    this.ctx.fill();
     this.ctx.closePath();
   }
 
@@ -28,7 +28,7 @@ class Bullet {
     this.vy += this.gravity;
 
     //Accelerate > 1 &&  Decelerate < 1
-    if (this.posY >= this.floor + this.playerHeight) this.vy *= -1
+    if (this.posY >= this.floor + this.playerHeight) this.vy *= -1;
   }
 
 }
