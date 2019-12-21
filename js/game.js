@@ -19,7 +19,6 @@ const Game = {
     this.height = window.innerHeight;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
-
     this.start();
   },
 
@@ -133,10 +132,15 @@ const Game = {
         this.obstacles.push(new Obstacle(this.ctx, 100, 200, this.width, this.height, images[rand]));
     }
   },
-
   gameOver: function () {
     //this.gameOver.draw();
     clearInterval(this.interval)
+    let gameOver = document.getElementById('over');
+    let resetBtn = document.getElementById('btn-reset');
+    gameOver.classList.add('active')
+    resetBtn.onclick = function(){
+      location.reload()
+    }
   },
 
   isCollision: function () {

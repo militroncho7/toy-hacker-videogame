@@ -15,7 +15,6 @@
   <script src="js/scoreboard.js"></script>
   <script src="js/game.js"></script>
   <script src="js/index.js"></script>
-  <script src="js/audio.js"></script>
 </head>
 
 <body>
@@ -34,6 +33,14 @@
   <audio id="audio" controls>
     <source type="audio/wav" src="music/music.mp3">
   </audio>
+
+<!-- game over -->
+<div id="over">
+  <div class="over-img">
+    <img src="img/over.jpg" alt="Game Over" title="Game Over">
+  </div>
+  <a id="btn-reset" href="javascript:void(0)" title="Empezar de nuevo">RESET</a>
+</div>
 </body>
 
 </html>
